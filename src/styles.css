@@ -1,0 +1,58 @@
+:root, [data-theme="light"] {
+    --bg: #f7f6f2; --surface: #fbfbf9; --surface-2: #f3f0ec; --border: #d4d1ca; --divider: #dcd9d5;
+    --text: #28251d; --muted: #6e6c66; --inverse: #f9f8f4; --primary: #01696f; --primary-hover: #0c4e54; --primary-soft: #cedcd8; --error: #a12c7b;
+    --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --shadow-sm: 0 1px 2px rgba(25,20,10,.08);
+  }
+  [data-theme="dark"] {
+    --bg: #171614; --surface: #1c1b19; --surface-2: #22211f; --border: #393836; --divider: #2a2927; --text: #cdccca; --muted: #9a9893; --inverse: #171614; --primary: #4f98a3; --primary-hover: #227f8b; --primary-soft: #313b3b; --error: #d163a7;
+  }
+  * { box-sizing: border-box; }
+  html, body, #root { min-height: 100%; }
+  body { margin: 0; font-family: 'Satoshi', 'Inter', sans-serif; background: linear-gradient(180deg, var(--bg), var(--surface-2)); color: var(--text); }
+  button, input, textarea { font: inherit; }
+  button { cursor: pointer; }
+  input, textarea { width: 100%; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); color: var(--text); padding: .85rem .95rem; }
+  input:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 14%, transparent); }
+  .app { max-width: 1200px; margin: 0 auto; padding: 1.5rem; display: grid; gap: 1.5rem; }
+  .topbar, .toolbar, .panel-head, .flex-between, .form-grid { display: flex; gap: .75rem; flex-wrap: wrap; }
+  .topbar, .panel-head, .flex-between { align-items: center; justify-content: space-between; }
+  .brand { display: flex; gap: .75rem; align-items: center; }
+  .logo { width: 44px; height: 44px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); display: grid; place-items: center; box-shadow: var(--shadow-sm); font-weight: 700; color: var(--primary); }
+  .panel { background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid var(--border); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); overflow: hidden; }
+  .panel-head { padding: 1.25rem; border-bottom: 1px solid var(--divider); }
+  .panel-body { padding: 1.25rem; display: grid; gap: 1rem; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
+  .stat, .card, .row { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1rem; }
+  .stat strong { display: block; font-size: 1.35rem; }
+  .btn { min-height: 44px; padding: .8rem 1rem; border-radius: var(--radius-md); border: 1px solid transparent; background: transparent; color: var(--text); }
+  .btn-primary { background: var(--primary); color: var(--inverse); }
+  .btn-secondary { background: var(--surface); border-color: var(--border); }
+  .btn-danger { background: var(--error); color: #fff; }
+  .label { display: grid; gap: .45rem; font-size: .92rem; color: var(--muted); }
+  .pill { display: inline-flex; align-items: center; padding: .35rem .6rem; border-radius: 999px; font-size: .76rem; background: var(--primary-soft); color: var(--primary); }
+  .muted, .helper { color: var(--muted); }
+  .muted { font-size: .92rem; }
+  .helper { font-size: .76rem; }
+  .layout { display: grid; gap: 1.5rem; }
+  @media (min-width: 768px) {
+    .layout { grid-template-columns: minmax(420px, 1fr) minmax(360px, 380px); align-items: start; }
+    .right-panel { position: sticky; top: 1.5rem; max-height: calc(100dvh - 3rem); }
+    .right-panel .panel-body { display: flex; flex-direction: column; min-height: 0; }
+    .basket-list { flex: 1; overflow: auto; }
+  }
+  @media (max-width: 767px) {
+    .layout { grid-template-columns: 1fr; }
+    .right-panel { position: static; }
+  }
+  .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1.5rem; }
+  .list { display: grid; gap: .75rem; }
+  .form-grid { align-items: end; }
+  .form-grid > * { flex: 1; min-width: 180px; }
+  .section { display: grid; gap: 1rem; }
+  .right-panel { display: flex; flex-direction: column; }
+  .right-panel .panel-body { display: flex; flex-direction: column; min-height: 0; }
+  .basket-list { flex: 1; overflow: auto; }
+  .basket-footer { margin-top: auto; position: sticky; bottom: 0; }
+  .sticky-actions { margin-top: .75rem; }
+  .btn, input, textarea { min-height: 44px; }
+  @media (max-width: 960px) { .app, .grid, .stats { grid-template-columns: 1fr; } }
